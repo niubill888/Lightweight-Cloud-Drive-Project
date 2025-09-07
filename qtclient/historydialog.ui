@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HistoryDialog</class>
+ <widget class="QDialog" name="HistoryDialog">
+  <property name="geometry">
+   <rect>
+    <x>100</x>
+    <y>100</y>
+    <width>900</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>操作历史记录</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableWidget" name="historyTableWidget">
+     <property name="columnCount">
+      <number>4</number> <!-- 原5列，删除“序号”列后改为4列 -->
+     </property>
+     <property name="horizontalHeaderLabels">
+      <stringlist>
+       <!-- 移除“序号”项，保留以下四列 -->
+       <string>文件名</string>
+       <string>操作类型</string>
+       <string>操作时间</string>
+       <string>状态</string>
+      </stringlist>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="buttonWidget" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="refreshButton">
+        <property name="text">
+         <string>刷新记录</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="closeButton">
+        <property name="text">
+         <string>关闭</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStatusBar" name="statusBar"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>refreshButton</sender>
+   <signal>clicked()</signal>
+   <receiver>HistoryDialog</receiver>
+   <slot>on_refreshButton_clicked()</slot>
+  </connection>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>HistoryDialog</receiver>
+   <slot>on_closeButton_clicked()</slot>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_refreshButton_clicked()</slot>
+  <slot>on_closeButton_clicked()</slot>
+ </slots>
+</ui>
